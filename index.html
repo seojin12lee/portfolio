@@ -2,1258 +2,314 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>포트폴리오 | Your Name</title>
+  <title>포트폴리오 | 이서진</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="보안 엔지니어 & 시스템/네트워크 엔지니어 포트폴리오" />
   <style>
     :root {
-      --bg: #050816;
-      --bg-alt: #0b1020;
-      --accent: #7c3aed;
-      --accent-soft: rgba(124, 58, 237, 0.12);
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --card: #111827;
-      --border: #1f2937;
+      --bg: #f8fafc;
+      --bg-alt: #eef2ff;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.12);
+      --text: #0f172a;
+      --muted: #475569;
+      --card: #ffffff;
+      --border: #e5e7eb;
       --radius-lg: 18px;
       --radius-full: 999px;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.7);
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
       --transition-fast: 0.18s ease-out;
       --max-width: 1080px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Pretendard",
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f8fafc, #eef2ff);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* 공통 레이아웃 */
-    .wrap {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .container {
-      width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
-    section {
-      padding: 5rem 0;
-    }
+    section { padding: 5rem 0; }
 
-    @media (max-width: 768px) {
-      section {
-        padding: 4rem 0;
-      }
-    }
-
-    .section-title {
-      font-size: 1.9rem;
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 2.4rem;
-    }
-
-    /* 헤더 & 네비게이션 */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(20px);
-      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.5), transparent);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.8);
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
     }
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+    .nav-left { display: flex; align-items: center; gap: 0.6rem; }
 
     .logo-circle {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, #f97316, #7c3aed);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.6),
-        0 10px 25px rgba(15, 23, 42, 0.9);
-      font-size: 0.9rem;
-      font-weight: 700;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, #6366f1, #22c55e);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700;
     }
 
-    .logo-text-main {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .logo-text-sub {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      font-size: 0.9rem;
-    }
+    .nav-links { display: flex; gap: 1rem; font-size: 0.9rem; }
 
     .nav-links a {
-      padding: 0.35rem 0.7rem;
+      padding: 0.35rem 0.8rem;
       border-radius: 999px;
       color: var(--muted);
-      border: 1px solid transparent;
-      transition: var(--transition-fast);
     }
 
     .nav-links a:hover {
-      color: var(--text);
-      border-color: rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.7);
+      background: var(--accent-soft);
+      color: var(--accent);
     }
 
-    .nav-links .nav-cta {
-      border-color: rgba(124, 58, 237, 0.6);
-      background: radial-gradient(circle at top left, #7c3aed, #4f46e5);
-      color: #f9fafb;
-      box-shadow: 0 8px 22px rgba(79, 70, 229, 0.6);
-      font-weight: 500;
-    }
-
-    .nav-links .nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 35px rgba(79, 70, 229, 0.75);
-    }
-
-    .nav-toggle {
-      display: none;
-      cursor: pointer;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 21px;
-      height: 2px;
-      background: #e5e7eb;
-      border-radius: 999px;
-      transition: 0.2s;
-    }
-
-    .nav-toggle span + span {
-      margin-top: 4px;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        position: absolute;
-        right: 1.5rem;
-        top: 64px;
-        flex-direction: column;
-        align-items: flex-start;
-        background: #020617;
-        padding: 0.9rem;
-        border-radius: 14px;
-        border: 1px solid rgba(31, 41, 55, 0.95);
-        box-shadow: var(--shadow-soft);
-        display: none;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .nav-toggle {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-    }
-
-    /* Hero 영역 */
     .hero {
-      padding-top: 3.2rem;
-      padding-bottom: 4.5rem;
+      padding: 5rem 0 4rem;
     }
 
     .hero-inner {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
-      gap: 3.2rem;
+      gap: 3rem;
       align-items: center;
     }
 
     @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 2.8rem;
-      }
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.18rem 0.55rem;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.8);
-      margin-bottom: 0.9rem;
-    }
-
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+      .hero-inner { grid-template-columns: 1fr; }
     }
 
     .hero-title {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       line-height: 1.15;
-      letter-spacing: -0.04em;
-      margin-bottom: 1.0rem;
+      margin-bottom: 1rem;
     }
 
     .hero-title span {
-      background: linear-gradient(to right, #a855f7, #22c55e);
-      -webkit-background-clip: text;
-      color: transparent;
+      color: var(--accent);
     }
 
     .hero-subtitle {
-      font-size: 0.98rem;
+      font-size: 1rem;
       color: var(--muted);
+      max-width: 40rem;
       margin-bottom: 1.8rem;
-      max-width: 38rem;
-    }
-
-    .hero-subtitle b {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-bottom: 1.4rem;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.6rem 1.3rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.6rem 1.4rem;
       border-radius: var(--radius-full);
-      border: 1px solid transparent;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: var(--transition-fast);
-      background: transparent;
-      color: var(--text);
-    }
-
-    .btn-primary {
-      border-color: rgba(124, 58, 237, 0.7);
-      background: radial-gradient(circle at top left, #8b5cf6, #4f46e5);
-      box-shadow: 0 12px 30px rgba(79, 70, 229, 0.75);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(79, 70, 229, 0.9);
-    }
-
-    .btn-ghost {
-      border-color: rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.7);
-      color: #e5e7eb;
-    }
-
-    .btn-ghost:hover {
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .hero-meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .hero-meta-label {
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      font-size: 0.7rem;
-      color: #6b7280;
-    }
-
-    .hero-meta-value {
-      font-size: 0.86rem;
-      color: #e5e7eb;
-    }
-
-    .hero-right {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    @media (max-width: 900px) {
-      .hero-right {
-        justify-content: center;
-      }
+      font-size: 0.9rem; font-weight: 500;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(79,70,229,0.25);
     }
 
     .profile-card {
-      width: 100%;
-      max-width: 310px;
-      border-radius: 26px;
-      background: radial-gradient(circle at top, rgba(55, 65, 81, 0.9), #020617);
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      max-width: 320px;
+      background: var(--card);
+      border-radius: 22px;
+      border: 1px solid var(--border);
       box-shadow: var(--shadow-soft);
-      padding: 1.1rem 1.2rem 1.3rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .profile-tag {
-      position: absolute;
-      top: 12px;
-      right: 14px;
-      font-size: 0.68rem;
-      padding: 0.22rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: #e5e7eb;
+      padding: 1.4rem;
     }
 
     .profile-avatar {
-      width: 74px;
-      height: 74px;
-      border-radius: 24px;
-      border: 2px solid rgba(248, 250, 252, 0.9);
-      background: linear-gradient(135deg, #4f46e5, #22c55e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.9rem;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+      width: 72px; height: 72px; border-radius: 20px;
+      background: linear-gradient(135deg, #6366f1, #22c55e);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; font-weight: 700; color: #fff;
+      margin-bottom: 0.8rem;
     }
 
-    .profile-name {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
+    .profile-name { font-size: 1.2rem; font-weight: 600; }
+    .profile-role { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .profile-bio { font-size: 0.85rem; color: var(--muted); }
 
-    .profile-role {
-      font-size: 0.8rem;
-      color: #e5e7eb;
-      margin-bottom: 0.9rem;
-    }
+    .section-title { font-size: 2rem; margin-bottom: 0.6rem; }
+    .section-subtitle { color: var(--muted); margin-bottom: 2rem; }
 
-    .profile-bio {
-      font-size: 0.8rem;
-      color: #d1d5db;
-      margin-bottom: 1.0rem;
-    }
-
-    .profile-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .profile-tag-pill {
-      font-size: 0.7rem;
-      padding: 0.16rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-    }
-
-    .profile-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      font-size: 0.72rem;
-      color: #cbd5f5;
-    }
-
-    .profile-stat-label {
-      color: #9ca3af;
-      font-size: 0.7rem;
-    }
-
-    .profile-stat-value {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #e5e7eb;
-    }
-
-    /* About */
-    .about-grid {
+    .skills-grid, .projects-grid {
       display: grid;
-      grid-template-columns: 2fr 1.3fr;
-      gap: 2.4rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
     }
 
-    @media (max-width: 880px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .about-text {
-      font-size: 0.95rem;
-      color: #e5e7eb;
-      line-height: 1.7;
-    }
-
-    .about-text p + p {
-      margin-top: 0.9rem;
-    }
-
-    .about-highlight {
-      display: inline-block;
-      padding: 0.1rem 0.45rem;
-      border-radius: 999px;
-      background: rgba(124, 58, 237, 0.15);
-      border: 1px solid rgba(129, 140, 248, 0.7);
-      font-size: 0.8rem;
-      margin-bottom: 0.6rem;
-      color: #e0e7ff;
-    }
-
-    .about-cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.9rem;
-    }
-
-    .about-card {
+    .card {
       background: var(--card);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.95);
-      padding: 0.9rem 1rem;
-      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.85);
-      font-size: 0.82rem;
-    }
-
-    .about-card-title {
-      font-size: 0.85rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .about-card ul {
-      padding-left: 1rem;
-      color: var(--muted);
-    }
-
-    .about-card li + li {
-      margin-top: 0.2rem;
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    @media (max-width: 900px) {
-      .skills-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .skill-card {
-      background: radial-gradient(circle at top, rgba(55, 65, 81, 0.65), #020617);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.95);
-      padding: 0.9rem 1rem;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
-      font-size: 0.85rem;
-    }
-
-    .skill-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.4rem;
-    }
-
-    .skill-title {
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .skill-level {
-      font-size: 0.7rem;
-      color: #a5b4fc;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.3rem;
-      color: var(--muted);
-    }
-
-    .skill-tags span {
-      padding: 0.1rem 0.5rem;
-      border-radius: var(--radius-full);
-      background: rgba(15, 23, 42, 0.85);
-      font-size: 0.72rem;
-    }
-
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.1rem;
-    }
-
-    @media (max-width: 1024px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 720px) {
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .project-card {
-      background: var(--card);
-      border-radius: 18px;
-      border: 1px solid rgba(31, 41, 55, 0.95);
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
-      display: flex;
-      flex-direction: column;
-      min-height: 220px;
-    }
-
-    .project-thumb {
-      height: 140px;
-      background: radial-gradient(circle at top, #4f46e5, #020617);
-      border-bottom: 1px solid rgba(31, 41, 55, 0.95);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.78rem;
-      color: #e5e7eb;
-    }
-
-    .project-body {
-      padding: 0.9rem 1rem 0.9rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      font-size: 0.82rem;
-    }
-
-    .project-title {
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .project-desc {
-      color: #e5e7eb;
-      line-height: 1.6;
-    }
-
-    .project-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.2rem;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-      margin-top: 0.3rem;
-      font-size: 0.7rem;
-    }
-
-    .project-tags span {
-      padding: 0.1rem 0.45rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(55, 65, 81, 0.95);
-    }
-
-    .project-links {
-      margin-top: 0.4rem;
-      display: flex;
-      gap: 0.6rem;
-      font-size: 0.78rem;
-    }
-
-    .project-links a {
-      color: #a5b4fc;
-    }
-
-    .project-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 2.2rem;
-    }
-
-    @media (max-width: 880px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .contact-card {
-      background: var(--card);
-      border-radius: var(--radius-lg);
       border: 1px solid var(--border);
-      padding: 1.2rem 1.3rem;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-      font-size: 0.86rem;
+      border-radius: var(--radius-lg);
+      padding: 1.2rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
     }
 
-    .contact-fields {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.7rem;
-      margin-top: 0.9rem;
-      margin-bottom: 0.7rem;
-    }
-
-    @media (max-width: 640px) {
-      .contact-fields {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-
-    label {
-      font-size: 0.78rem;
-      color: #e5e7eb;
-    }
-
-    input,
-    textarea {
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(31, 41, 55, 0.95);
-      border-radius: 9px;
-      padding: 0.55rem 0.7rem;
-      color: #e5e7eb;
-      font-size: 0.86rem;
-      outline: none;
-      transition: var(--transition-fast);
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: rgba(129, 140, 248, 0.9);
-      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.75);
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .contact-note {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 0.3rem;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      font-size: 0.86rem;
-    }
-
-    .contact-info-item {
-      padding: 0.7rem 0.8rem;
-      border-radius: 12px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(31, 41, 55, 0.95);
-    }
-
-    .contact-info-label {
-      font-size: 0.75rem;
-      color: #9ca3af;
-      margin-bottom: 0.2rem;
-    }
-
-    .contact-info-value {
-      font-size: 0.87rem;
-    }
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      font-size: 0.8rem;
-      margin-top: 0.4rem;
-    }
-
-    .social-links a {
-      padding: 0.16rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.95);
-      color: #c7d2fe;
-    }
-
-    .social-links a:hover {
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    /* Footer */
     footer {
-      border-top: 1px solid rgba(15, 23, 42, 0.95);
-      padding: 1.4rem 0 2rem;
-      font-size: 0.78rem;
-      color: #6b7280;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-inner a {
-      color: #9ca3af;
-    }
-
-    .footer-inner a:hover {
-      color: #e5e7eb;
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      font-size: 0.8rem;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
-<div class="wrap">
-  <!-- HEADER -->
-  <header>
-    <div class="container">
-      <nav class="nav">
-        <div class="nav-left">
-          <div class="logo-circle">Y</div>
-          <div>
-            <div class="logo-text-main">Your Name</div>
-            <div class="logo-text-sub">Security & Network Engineer</div>
-          </div>
-        </div>
-        <div class="nav-links" id="navLinks">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact" class="nav-cta">Contact</a>
-        </div>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
-      </nav>
-    </div>
-  </header>
 
-  <!-- MAIN -->
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div>
-          <div class="badge">
-            <span class="badge-dot"></span>
-            포트폴리오 · 개인 웹사이트
-          </div>
-          <h1 class="hero-title">
-            안녕하세요,<br />
-            <span>보안 · 네트워크 엔지니어</span> Your Name 입니다.
-          </h1>
-          <p class="hero-subtitle">
-            웹 서비스 인프라부터 네트워크, 로그 분석까지
-            <b>엔드투엔드로 이해하고 대응하는 보안 엔지니어</b>를 목표로 하고 있습니다.
-            취약점 진단, 로그 분석, 네트워크 설계·구성이 강점입니다.
-          </p>
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">프로젝트 보러가기</a>
-            <a href="#contact" class="btn btn-ghost">협업/채용 문의</a>
-          </div>
-          <div class="hero-meta">
-            <div class="hero-meta-item">
-              <span class="hero-meta-label">Focus</span>
-              <span class="hero-meta-value">보안 진단 · 시스템/네트워크</span>
-            </div>
-            <div class="hero-meta-item">
-              <span class="hero-meta-label">Stacks</span>
-              <span class="hero-meta-value">Linux · Windows Server · PHP · MariaDB</span>
-            </div>
-            <div class="hero-meta-item">
-              <span class="hero-meta-label">Keywords</span>
-              <span class="hero-meta-value">취약점 점검 · 로그 수집 · 패킷 분석</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-right">
-          <div class="profile-card">
-            <div class="profile-tag">Open to Opportunities</div>
-            <div class="profile-avatar">Y</div>
-            <div class="profile-name">Your Name</div>
-            <div class="profile-role">Security / Network Engineer</div>
-            <p class="profile-bio">
-              웹 서비스 구조를 이해하고 직접 구축해 본 경험을 바탕으로
-              <b>실제 운영 환경 관점</b>에서 보안을 바라봅니다.
-            </p>
-            <div class="profile-tags">
-              <span class="profile-tag-pill">웹 취약점 진단</span>
-              <span class="profile-tag-pill">Linux / Rocky</span>
-              <span class="profile-tag-pill">Windows Server</span>
-              <span class="profile-tag-pill">Wireshark</span>
-            </div>
-            <div class="profile-footer">
-              <div>
-                <div class="profile-stat-label">Main Project</div>
-                <div class="profile-stat-value">밥세권 보안 인프라</div>
-              </div>
-              <div>
-                <div class="profile-stat-label">Based in</div>
-                <div class="profile-stat-value">Seoul, KR</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title">About</h2>
-        <p class="section-subtitle">
-          나를 한눈에 이해할 수 있도록, 핵심 경험과 강점을 정리했습니다.
-        </p>
-        <div class="about-grid">
-          <div>
-            <div class="about-highlight">보안 엔지니어링 기반의 풀스택 환경 경험</div>
-            <div class="about-text">
-              <p>
-                웹 서비스 개발(MVC2, PHP, MariaDB)부터 네트워크 설계(GNS3, Cisco),
-                보안 실습(취약점 진단, 로그 수집, 패킷 분석)까지
-                <b>엔드투엔드로 직접 구축하고 실습</b>해 왔습니다.
-              </p>
-              <p>
-                단순히 이론을 학습하는 것을 넘어,
-                실제 서비스 시나리오를 설정하고 모의해킹·로그 분석·백업·복구까지
-                전 과정을 경험하며 <b>실무와 가까운 감각</b>을 키워왔습니다.
-              </p>
-              <p>
-                새로운 환경을 빠르게 이해하고, 구조화해서 정리하는 것을 좋아합니다.
-                "왜 이렇게 설계했는지"를 고민하며 더 안전하고 효율적인 구조를
-                만드는 것에 관심이 많습니다.
-              </p>
-            </div>
-          </div>
-
-          <div class="about-cards">
-            <div class="about-card">
-              <div class="about-card-title">관심 분야</div>
-              <ul>
-                <li>웹 취약점 진단 및 모의해킹 시나리오 설계</li>
-                <li>로그 수집/분석 환경 구축 (rsyslog, Elastic Stack 등)</li>
-                <li>네트워크 구조 설계 및 트래픽 분석</li>
-                <li>백업/복구 전략·자동화 스크립트 작성</li>
-              </ul>
-            </div>
-            <div class="about-card">
-              <div class="about-card-title">강점</div>
-              <ul>
-                <li>복잡한 구조를 도식화·정리해서 이해시키는 능력</li>
-                <li>문제 상황에서 원인 찾기 & 재현·정리하는 습관</li>
-                <li>꾸준히 기록하고 문서화하는 습관(Notion, Markdown)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">
-          실제 프로젝트·실습에서 사용한 기술들을 중심으로 정리했습니다.
-        </p>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <div class="skill-header">
-              <div class="skill-title">Security & Pentest</div>
-              <div class="skill-level">실습 중심</div>
-            </div>
-            <p>
-              Burp Suite, sqlmap, Nmap, Wireshark 등을 활용해
-              웹·네트워크 취약점 진단 및 패킷 분석 실습 경험.
-            </p>
-            <div class="skill-tags">
-              <span>XSS / CSRF / SQLi</span>
-              <span>파일 업로드 취약점</span>
-              <span>세션/인증 취약점</span>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <div class="skill-header">
-              <div class="skill-title">System & Network</div>
-              <div class="skill-level">운영·실습</div>
-            </div>
-            <p>
-              Rocky Linux, Windows Server 2016 기반으로 DNS, DHCP, 웹, DB, 로그 서버 구성.
-            </p>
-            <div class="skill-tags">
-              <span>Rocky / CentOS 계열</span>
-              <span>Windows Server 2016</span>
-              <span>DNS / DHCP / FTP</span>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <div class="skill-header">
-              <div class="skill-title">Web & DB</div>
-              <div class="skill-level">프로젝트 경험</div>
-            </div>
-            <p>
-              PHP, MariaDB 기반 웹 서비스 구현 및 보안 관점에서의 구조 개선 경험.
-            </p>
-            <div class="skill-tags">
-              <span>PHP 8</span>
-              <span>MariaDB</span>
-              <span>SQL 튜닝 기본</span>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <div class="skill-header">
-              <div class="skill-title">Monitoring / Logging</div>
-              <div class="skill-level">실습</div>
-            </div>
-            <p>
-              rsyslog 기반 로그 수집, 백업 스크립트 작성 및 장애 상황 분석.
-            </p>
-            <div class="skill-tags">
-              <span>rsyslog</span>
-              <span>로그 포맷 분석</span>
-              <span>백업 설계</span>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <div class="skill-header">
-              <div class="skill-title">Scripting & Automation</div>
-              <div class="skill-level">실습</div>
-            </div>
-            <p>
-              Bash/PowerShell로 백업·로그·계정 생성 작업 자동화 스크립트 작성 경험.
-            </p>
-            <div class="skill-tags">
-              <span>Bash</span>
-              <span>PowerShell</span>
-              <span>자동화 스크립트</span>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <div class="skill-header">
-              <div class="skill-title">Documentation</div>
-              <div class="skill-level">강점</div>
-            </div>
-            <p>
-              문제 해결 과정, 실습 환경, 아키텍처를 문서와 도식으로 정리하는 습관.
-            </p>
-            <div class="skill-tags">
-              <span>Notion</span>
-              <span>Markdown</span>
-              <span>기술 문서 작성</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">
-          실제로 구성해 본 보안·네트워크·웹 관련 프로젝트입니다.
-          (실제 본인 프로젝트로 자유롭게 수정하세요)
-        </p>
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              밥세권 통합 인프라 & 보안 실습 환경
-            </div>
-            <div class="project-body">
-              <div class="project-title">밥세권 – 웹·DB·보안 네트워크 통합 프로젝트</div>
-              <p class="project-desc">
-                웹 서비스(MVC2, PHP, MariaDB)와 네트워크(GNS3, Cisco 라우터),
-                보안 실습 환경(Rocky 로그 서버, 모의해킹)을 한 번에 구성한 개인/팀 프로젝트.
-              </p>
-              <div class="project-meta">
-                <span>2025 · 개인/팀 프로젝트</span>
-                <span>Role: Security & Network</span>
-              </div>
-              <div class="project-tags">
-                <span>PHP / MariaDB</span>
-                <span>Rocky Linux</span>
-                <span>Windows Server</span>
-                <span>취약점 진단</span>
-              </div>
-              <div class="project-links">
-                <!-- 실제 링크로 교체 -->
-                <a href="#" target="_blank" rel="noreferrer">Git / 문서 링크</a>
-                <a href="#" target="_blank" rel="noreferrer">구성도 보기</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 2 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              DNS · DHCP · 로그 백업 자동화
-            </div>
-            <div class="project-body">
-              <div class="project-title">Windows DNS/DHCP + Rocky 로그 서버 연동</div>
-              <p class="project-desc">
-                Windows Server 2016의 DNS/DHCP 설정과 로그를
-                Rocky Linux 로그 서버로 백업하고, 스케줄러 및 스크립트로
-                자동화한 실습 프로젝트.
-              </p>
-              <div class="project-meta">
-                <span>2025 · 개인 실습</span>
-                <span>Role: System / Script</span>
-              </div>
-              <div class="project-tags">
-                <span>Windows DNS/DHCP</span>
-                <span>rsyslog</span>
-                <span>PowerShell</span>
-                <span>Bash</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noreferrer">상세 정리 노트</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              웹 취약점 모의해킹 리포트
-            </div>
-            <div class="project-body">
-              <div class="project-title">웹 취약점 진단 & 모의해킹 보고서 작성</div>
-              <p class="project-desc">
-                파일 업로드 취약점, SQL Injection, XSS, CSRF,
-                세션 고정 등 주요 웹 취약점 시나리오를 직접 구성하고
-                Burp Suite·sqlmap 등으로 검증 후 보고서 형태로 정리.
-              </p>
-              <div class="project-meta">
-                <span>2025 · 개인 실습</span>
-                <span>Role: Pentester</span>
-              </div>
-              <div class="project-tags">
-                <span>Burp Suite</span>
-                <span>sqlmap</span>
-                <span>보고서 작성</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noreferrer">리포트 샘플(PDF)</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">
-          협업·채용·스터디 제안 모두 환영합니다. 편하신 채널로 연락 주세요.
-        </p>
-        <div class="contact-grid">
-          <div class="contact-card">
-            <!-- 실제 동작하는 폼을 쓰려면 action / method / 백엔드 필요 -->
-            <form onsubmit="alert('현재는 데모 폼입니다. 이력서/이메일로 연락 주세요 :)'); return false;">
-              <div class="field">
-                <label for="name">이름 / 소속</label>
-                <input id="name" type="text" placeholder="예) 홍길동 / ○○ 보안팀" />
-              </div>
-              <div class="contact-fields">
-                <div class="field">
-                  <label for="email">이메일</label>
-                  <input id="email" type="email" placeholder="연락 받으실 이메일" />
-                </div>
-                <div class="field">
-                  <label for="type">문의 종류</label>
-                  <input id="type" type="text" placeholder="채용 / 협업 / 스터디 등" />
-                </div>
-              </div>
-              <div class="field">
-                <label for="message">메시지</label>
-                <textarea id="message" placeholder="간단한 소개와 함께 연락 내용을 남겨주세요."></textarea>
-              </div>
-              <p class="contact-note">
-                ※ 실제 연락은 하단 이메일/링크를 통해 주시면 더 빠르게 확인할 수 있습니다.
-              </p>
-              <button type="submit" class="btn btn-primary" style="margin-top: 0.7rem;">
-                메시지 보내기 (데모)
-              </button>
-            </form>
-          </div>
-
-          <div class="contact-info">
-            <div class="contact-info-item">
-              <div class="contact-info-label">이메일</div>
-              <div class="contact-info-value">
-                <!-- 실제 이메일로 변경 -->
-                your.email@example.com
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="contact-info-label">GitHub / Blog</div>
-              <div class="social-links">
-                <!-- 실제 링크로 변경 -->
-                <a href="#" target="_blank" rel="noreferrer">GitHub</a>
-                <a href="#" target="_blank" rel="noreferrer">기술 블로그</a>
-                <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="contact-info-label">관심 키워드</div>
-              <div class="contact-info-value">
-                보안 엔지니어 · 네트워크 · 로그 분석 · 모의해킹 · 인프라 자동화
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-inner">
-      <div>© <span id="year"></span> Your Name. All rights reserved.</div>
+<header>
+  <div class="container nav">
+    <div class="nav-left">
+      <div class="logo-circle">L</div>
       <div>
-        Built with HTML/CSS · Hosted on
-        <a href="#">(GitHub Pages 등)</a>
+        <strong>이서진</strong><br />
+        <small style="color:var(--muted)">Security & Network Engineer</small>
       </div>
     </div>
-  </footer>
-</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <h1 class="hero-title">안녕하세요,<br /><span>보안 · 네트워크 엔지니어</span><br />이서진입니다.</h1>
+        <p class="hero-subtitle">
+          웹 서비스 구조부터 네트워크, 로그 분석까지<br />
+          운영 환경 관점에서 보안을 설계하고 점검하는 엔지니어를 지향합니다.
+        </p>
+        <a href="#projects" class="btn">프로젝트 보기</a>
+      </div>
+      <div>
+        <div class="profile-card">
+          <div class="profile-avatar">L</div>
+          <div class="profile-name">이서진</div>
+          <div class="profile-role">Security / Network Engineer</div>
+          <p class="profile-bio">
+            직접 구축한 웹·네트워크·보안 실습 환경을 기반으로
+            실무와 가까운 보안 경험을 쌓고 있습니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <p class="section-subtitle">보안 엔지니어 채용 기준에서 가장 중요하게 보는 경험 위주로 정리했습니다.</p>
+      <div class="card">
+        <p>
+          저는 <strong>서비스 구조를 이해한 상태에서 보안을 설계·점검할 수 있는 보안 엔지니어</strong>를 지향합니다.
+          단순 취약점 도구 사용에 그치지 않고, 웹·시스템·네트워크를 직접 구축한 뒤
+          공격 시나리오를 설정하고 로그로 검증하는 방식의 실습을 반복해왔습니다.
+        </p>
+        <p style="margin-top:0.8rem">
+          특히 DNS, 로그 서버, 웹 서버와 같은 <strong>실제 운영 인프라 구성 요소</strong>를 직접 다뤄보며
+          "어디서 사고가 발생하고, 무엇을 근거로 판단해야 하는지"를 중심으로 경험을 쌓았습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Security Skills</h2>
+      <p class="section-subtitle">보안 엔지니어 실무 기준으로 분류한 핵심 역량입니다.</p>
+      <div class="skills-grid">
+        <div class="card">
+          <strong>웹 취약점 진단</strong><br />
+          XSS, SQL Injection, 파일 업로드, 인증/세션 취약점 진단<br />
+          → 재현 → 영향 분석 → 보안 조치 정리까지 수행
+        </div>
+        <div class="card">
+          <strong>인프라 보안 설정</strong><br />
+          DNS/DHCP 보안 설정, Zone Transfer 통제, 로그 설정 강화<br />
+          서버 접근 통제 및 권한 관리
+        </div>
+        <div class="card">
+          <strong>로그 분석</strong><br />
+          Windows 이벤트 로그, DNS 로그, 시스템 로그 수집<br />
+          사고 분석을 위한 로그 보존·무결성 관점 이해
+        </div>
+        <div class="card">
+          <strong>네트워크 분석</strong><br />
+          GNS3 기반 네트워크 구성, 트래픽 흐름 분석<br />
+          Wireshark 패킷 캡처 및 공격 패턴 확인
+        </div>
+        <div class="card">
+          <strong>보안 도구 활용</strong><br />
+          Burp Suite, sqlmap, Nmap, Wireshark
+        </div>
+        <div class="card">
+          <strong>문서화 능력</strong><br />
+          취약점 진단 보고서, 보안 설정 근거 문서 작성
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Security Projects</h2>
+      <p class="section-subtitle">보안 엔지니어 채용 시 설명 가능한 프로젝트만 선별했습니다.</p>
+      <div class="projects-grid">
+        <div class="card">
+          <strong>밥세권 통합 인프라 보안 프로젝트</strong><br />
+          웹·DB·네트워크 환경을 직접 구축 후
+          취약점 진단 → 보안 설정 → 로그로 검증까지 수행
+          <ul style="margin-top:0.6rem; padding-left:1rem">
+            <li>웹 취약점 진단 및 조치</li>
+            <li>DNS 보안 설정 및 공격 시나리오 대응</li>
+            <li>로그 서버 구축 및 분석</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>DNS/DHCP + 로그 백업 자동화</strong><br />
+          Windows Server DNS/DHCP 로그를 Rocky Linux로 백업
+          PowerShell/Bash 스크립트로 자동화
+        </div>
+        <div class="card">
+          <strong>웹 취약점 모의해킹 리포트</strong><br />
+          단순 결과 나열이 아닌
+          공격 흐름·위험도·대응 방안 중심의 보고서 작성
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <p><strong>Email</strong><br />aillsasophia@gmail.com</p>
+        <p style="margin-top:0.6rem"><strong>Links</strong><br />GitHub · Blog · LinkedIn</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> 이서진</div>
+</footer>
 
 <script>
-  // 모바일 네비 토글
-  const navToggle = document.getElementById("navToggle");
-  const navLinks = document.getElementById("navLinks");
-
-  navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-  });
-
-  // 링크 클릭 시 모바일 메뉴 닫기
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("show");
-    });
-  });
-
-  // Footer 연도 자동 갱신
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
